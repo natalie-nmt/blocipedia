@@ -19,7 +19,6 @@
   "homepage": "https://github.com/natalie-nmt/blocipedia#readme",
   "devDependencies": {
     "jasmine": "^3.0.0",
-    "morgan": "^1.9.1",
     "request": "^2.83.0"
   },
   "dependencies": {
@@ -38,6 +37,7 @@
     "pg": "^7.9.0",
     "pg-hstore": "^2.3.2",
     "sequelize": "^5.2.8",
-    "sequelize-cli": "^5.4.0"
+    "sequelize-cli": "^5.4.0",
+    "morgan": "^1.9.1"
   }
 }
