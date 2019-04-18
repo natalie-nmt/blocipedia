@@ -1,5 +1,6 @@
 const userQueries = require("../db/queries.users.js");
 const passport = require("passport");
+const sgMail = require('@sendgrid/mail');
 
 module.exports = {
   signUp(req, res, next) {
@@ -7,7 +8,6 @@ module.exports = {
   },
 
   create(req, res, next) {
-    console.log("Debugging: create is being called in the usercontroller");
     let newUser = {
       email: req.body.email,
       password: req.body.password,
@@ -19,8 +19,18 @@ module.exports = {
         req.flash("error", err);
         res.redirect("/users/signup");
       } else {
-
         passport.authenticate("local")(req, res, () => {
+
+          sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+          const msg = {
+            to: newUser.email,
+            from: "natalie.thomas.nmt@gmail.com",
+            subject: "Welcome to Blocipedia!",
+            text: "Thanks for creating an account on Blocipedia! We're excited to have you join our community of knowledge-hungry members. Stay tuned for more updates to the platform and our community.",
+            html: "<strong>This is what the html looks like.</strong>",
+          };
+          sgMail.send(msg);
+
           req.flash("notice", "You've successfully signed in!");
           res.redirect("/");
         })
