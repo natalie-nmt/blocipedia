@@ -23,15 +23,15 @@ module.exports = {
 
           sgMail.setApiKey(process.env.SENDGRID_API_KEY);
           const msg = {
-            to: newUser.email,
-            from: "natalie.thomas.nmt@gmail.com",
-            subject: "Welcome to Blocipedia!",
-            text: "Thanks for creating an account on Blocipedia! We're excited to have you join our community of knowledge-hungry members. Stay tuned for more updates to the platform and our community.",
-            html: "<strong>This is what the html looks like.</strong>",
+            to: 'test@example.com',
+            from: 'test@example.com',
+            subject: 'Sending with SendGrid is Fun',
+            text: 'and easy to do anywhere, even with Node.js',
+            html: '<strong>and easy to do anywhere, even with Node.js</strong>',
           };
           sgMail.send(msg);
 
-          req.flash("notice", "You've successfully signed in!");
+          // req.flash("notice", "You've successfully signed in!");
           res.redirect("/");
         })
       }
