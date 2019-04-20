@@ -28,11 +28,6 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       },
-      role: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        defaultValue: "member"
-      }
     });
   },
   down: (queryInterface, Sequelize) => {
