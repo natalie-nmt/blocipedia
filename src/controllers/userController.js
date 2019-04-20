@@ -20,7 +20,7 @@ module.exports = {
         res.redirect("/users/signup");
       } else {
         passport.authenticate("local")(req, res, () => {
-
+          req.flash("notice", "You've successfully signed in!");
           sgMail.setApiKey(process.env.SENDGRID_API_KEY);
           const msg = {
             to: 'test@example.com',
@@ -30,8 +30,6 @@ module.exports = {
             html: '<strong>and easy to do anywhere, even with Node.js</strong>',
           };
           sgMail.send(msg);
-
-          // req.flash("notice", "You've successfully signed in!");
           res.redirect("/");
         })
       }
