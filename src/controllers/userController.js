@@ -22,7 +22,7 @@ module.exports = {
         passport.authenticate("local")(req, res, () => {
           req.flash("notice", "You've successfully signed in!");
           res.redirect("/");
-          sgMail.setApiKey(process.env.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);
+          sgMail.setApiKey(process.env.SENDGRID_API_KEY);
           const msg = {
             to: 'natalie.thomas.nmt@gmail.com',
             from: 'natalie.thomas.nmt@gmail.com',
