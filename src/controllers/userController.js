@@ -22,15 +22,15 @@ module.exports = {
         passport.authenticate("local")(req, res, () => {
           req.flash("notice", "You've successfully signed in!");
           res.redirect("/");
-          // sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-          // const msg = {
-          //   to: 'natalie.thomas.nmt@gmail.com',
-          //   from: 'natalie.thomas.nmt@gmail.com',
-          //   subject: 'Sending with SendGrid is Fun',
-          //   text: 'and easy to do anywhere, even with Node.js',
-          //   html: '<strong>and easy to do anywhere, even with Node.js</strong>',
-          // };
-          // sgMail.send(msg);
+          sgMail.setApiKey(process.env.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);
+          const msg = {
+            to: 'natalie.thomas.nmt@gmail.com',
+            from: 'natalie.thomas.nmt@gmail.com',
+            subject: 'Sending with SendGrid is Fun',
+            text: 'and easy to do anywhere, even with Node.js',
+            html: '<strong>and easy to do anywhere, even with Node.js</strong>',
+          };
+          sgMail.send(msg);
         })
       }
     });
