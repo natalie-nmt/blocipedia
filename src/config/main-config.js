@@ -4,9 +4,9 @@ const viewsFolder = path.join(__dirname, "..", "views");
 const bodyParser = require("body-parser");
 const expressValidator = require("express-validator");
 const session = require("express-session");
-const passportConfig = require("./passport-config");
 const flash = require("express-flash");
-const logger = require('morgan');
+const passportConfig = require("./passport-config");
+//const logger = require('morgan');
 
 module.exports = {
   init(app,express){
@@ -23,6 +23,6 @@ module.exports = {
     }))
     passportConfig.init(app);
     app.use(flash());  
-    app.use(logger('dev'));  
+    //app.use(logger('dev'));  
   }
 };

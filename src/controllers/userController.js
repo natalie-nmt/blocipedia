@@ -7,7 +7,6 @@ module.exports = {
   },
 
   create(req, res, next) {
-    console.log("Debugging: create is being called in the usercontroller");
     let newUser = {
       email: req.body.email,
       password: req.body.password,
