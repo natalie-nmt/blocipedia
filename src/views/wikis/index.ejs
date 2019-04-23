@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../static/partials/head.ejs %>
+  </head>
+  <body>
+    <main class="container">
+      <% include ../static/partials/navbar.ejs %>
+
+      <h1>Wikis</h1>
+
+      <ul class="list-group">
+        <% wikis.forEach((topic) => { %>
+          <li class="list-group-item">
+            <a href="/wikis/<%= topic.id %>"> <%= wiki.title %> </a>
+          </li>
+          <a href="/wikis/new" class="btn btn-success">New Wiki</a>
+          <% } %>
+      </ul>
+      <% include ../static/partials/baseScripts.ejs %>
+      <% include ../static/partials/footer.ejs %>
+    </main>
+  </body>
+</html>
