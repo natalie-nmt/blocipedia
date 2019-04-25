@@ -35,14 +35,14 @@
     "express-validator": "^5.3.1",
     "heroku": "^7.22.9",
     "jquery": "^3.4.0",
+    "morgan": "^1.9.1",
     "nodemon": "^1.18.10",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
     "pg": "^7.9.0",
     "pg-hstore": "^2.3.2",
-    "sequelize-cli": "^5.4.0",
-    "morgan": "^1.9.1",
     "popper.js": "^1.15.0",
-    "sequelize": "^5.7.1"
+    "sequelize": "^5.7.1",
+    "sequelize-cli": "^5.4.0"
   }
 }

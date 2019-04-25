@@ -21,7 +21,7 @@ module.exports = {
   getUser(id, callback) {
 
     let result = {};
-    User.findById(id)
+    User.findByPk(id)
       .then((user) => {
         if (!user) {
           callback(404);

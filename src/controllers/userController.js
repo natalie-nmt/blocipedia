@@ -24,9 +24,9 @@ module.exports = {
           res.redirect("/");
           sgMail.setApiKey(process.env.SENDGRID_API_KEY);
           const msg = {
-            to: 'natalie.thomas.nmt@gmail.com',
-            from: 'natalie.thomas.nmt@gmail.com',
-            subject: 'Welcome to Blocipedia!',
+            to: 'test@example.com',
+            from: 'test@example.com',
+            subject: 'Sending with SendGrid is Fun',
             text: 'and easy to do anywhere, even with Node.js',
             html: '<strong>and easy to do anywhere, even with Node.js</strong>',
           };
