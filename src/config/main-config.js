@@ -7,6 +7,7 @@ const session = require("express-session");
 const passportConfig = require("./passport-config");
 const flash = require("express-flash");
 const logger = require('morgan');
+const sgMail = require('@sendgrid/mail');
 
 module.exports = {
   init(app, express) {
@@ -23,6 +24,7 @@ module.exports = {
     }));
     app.use(flash());
     passportConfig.init(app);
+    sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
     app.use((req, res, next) => {
       res.locals.currentUser = req.user;
