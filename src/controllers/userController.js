@@ -9,6 +9,7 @@ module.exports = {
 
   create(req, res, next) {
     let newUser = {
+      name: req.body.name,
       email: req.body.email,
       password: req.body.password,
       passwordConfirmation: req.body.passwordConfirmation
@@ -22,21 +23,18 @@ module.exports = {
         passport.authenticate("local")(req, res, () => {
           req.flash("notice", "You've successfully signed in!");
           res.redirect("/");
-          //sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-          const msg = {
-            to: 'test@example.com',
-            from: 'test@example.com',
-            subject: 'Sending with SendGrid is Fun',
-            text: 'and easy to do anywhere, even with Node.js',
-            html: '<strong>and easy to do anywhere, even with Node.js</strong>',
-          };
-          sgMail.send(msg);
-          if(err) {
-            console.log(err);
-          };
-        })
+        });
       }
     });
+    sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+    const msg = {
+      to: "natalie.thomas.nmt@gmail.com",
+      from: "natalie.thomas.nmt@gmail.com",
+      subject: "Welcome to Blocipedia!",
+      text: "Thank you for creating an account with us.",
+      html: "<strong>Thank you for creating an account with us.</strong> We can't wait to see what you do next.",
+    };
+    sgMail.send(msg);
   },
 
   signInForm(req, res, next) {
@@ -73,6 +71,6 @@ module.exports = {
         res.render("users/show", { ...result });
       }
     });
-  }
+  },
 
 };
