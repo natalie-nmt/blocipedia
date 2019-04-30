@@ -17,10 +17,10 @@
     "logging": false
   },
   "production": {
-    "username": "root",
+    "username": "postgres",
     "password": null,
     "database": "database_production",
-    "host": "127.0.0.1",
+    "host": "nmt-blocipedia.herokuapp.com",
     "dialect": "postgres",
     "logging": false,
     "operatorsAliases": false,
