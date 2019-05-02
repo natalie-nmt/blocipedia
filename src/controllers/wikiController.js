@@ -6,9 +6,11 @@ module.exports = {
     wikiQueries.getAllTopics((err, wikis) => {
       if (err) {
         res.redirect(500, "static/index");
+        console.log("Debugging, here's the error message: ", err);
       }
       else {
         res.render("wikis/index", { wikis });
+        console.log("Debugging:", wikis);
       }
     })
   },
