@@ -25,7 +25,7 @@ module.exports = {
   addWiki(newWiki, callback) {
     return Wiki.create({
       title: newWiki.title,
-      body: newWiki.description,
+      body: newWiki.body,
       private: false
     })
       .then((wiki) => {

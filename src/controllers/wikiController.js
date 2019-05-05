@@ -6,11 +6,9 @@ module.exports = {
     wikiQueries.getAllWikis((err, wikis) => {
       if (err) {
         res.redirect(500, "static/index");
-        console.log("Debugging, here's the error message: ", err);
       }
       else {
         res.render("wikis/index", { wikis });
-        console.log("Debugging:", wikis);
       }
     })
   },
@@ -31,7 +29,7 @@ module.exports = {
     if (authorized) {
       let newWiki = {
         title: req.body.title,
-        description: req.body.description
+        body: req.body.body
       };
       wikiQueries.addWiki(newWiki, (err, wiki) => {
         if (err) {
