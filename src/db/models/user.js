@@ -24,12 +24,12 @@ module.exports = (sequelize, DataTypes) => {
       as: "wikis"
     });
   };
-  // User.prototype.isAdmin = function() {
-  //   return this.role === "admin";
-  // };
+  User.prototype.isAdmin = function() {
+    return this.role === "admin";
+  };
 
-  // User.prototype.isMember = function() {
-  //   return this.role === "member";
-  // };
+  User.prototype.isMember = function() {
+    return this.role === "member";
+  };
   return User;
 };

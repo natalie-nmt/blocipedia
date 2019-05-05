@@ -10,11 +10,11 @@
       
       <% include ../static/partials/messages.ejs %>
 
-      <h1>New Topic</h1>
+      <h1>New Wiki</h1>
 
       <form action="/wikis/create" method="post">
         <div class="form-group">
-          <label for="title">Topic title</label>
+          <label for="title">Wiki title</label>
           <input type="text" class="form-control" name="title" aria-describedby="titleHelp" placeholder="Enter Title">
           <small class="text-muted" id="titleHelp">title must be 2 or more characters in length.</small>
         </div>

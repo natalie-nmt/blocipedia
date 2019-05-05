@@ -1,9 +1,9 @@
 const wikiQueries = require("../db/queries.wikis.js");
-const Authorizer = require("../policies/wiki");
+const Authorizer = require("../db/policies/wiki");
 
 module.exports = {
   index(req, res, next) {
-    wikiQueries.getAllTopics((err, wikis) => {
+    wikiQueries.getAllWikis((err, wikis) => {
       if (err) {
         res.redirect(500, "static/index");
         console.log("Debugging, here's the error message: ", err);
@@ -29,11 +29,11 @@ module.exports = {
   create(req, res, next) {
     const authorized = new Authorizer(req.user).create();
     if (authorized) {
-      let newTopic = {
+      let newWiki = {
         title: req.body.title,
         description: req.body.description
       };
-      wikiQueries.addTopic(newTopic, (err, wiki) => {
+      wikiQueries.addWiki(newWiki, (err, wiki) => {
         if (err) {
           res.redirect(500, "wikis/new");
         } else {
@@ -47,7 +47,7 @@ module.exports = {
   },
 
   show(req, res, next) {
-    wikiQueries.getTopic(req.params.id, (err, wiki) => {
+    wikiQueries.getWiki(req.params.id, (err, wiki) => {
       if (err || wiki == null) {
         res.redirect(404, "/");
       } else {
@@ -57,7 +57,7 @@ module.exports = {
   },
 
   destroy(req, res, next) {
-    wikiQueries.deleteTopic(req, (err, wiki) => {
+    wikiQueries.deleteWiki(req, (err, wiki) => {
       if (err) {
         res.redirect(
           typeof err === "number" ? err : 500,
@@ -70,7 +70,7 @@ module.exports = {
   },
 
   edit(req, res, next) {
-    wikiQueries.getTopic(req.params.id, (err, wiki) => {
+    wikiQueries.getWiki(req.params.id, (err, wiki) => {
       if (err || wiki == null) {
         res.redirect(404, "/");
       } else {
@@ -86,7 +86,7 @@ module.exports = {
   },
 
   update(req, res, next) {
-    wikiQueries.updateTopic(req, req.body, (err, wiki) => {
+    wikiQueries.updateWiki(req, req.body, (err, wiki) => {
       if (err || wiki == null) {
         res.redirect(401, `/wikis/${req.params.id}/edit`);
       } else {
