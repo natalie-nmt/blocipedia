@@ -5,6 +5,7 @@ module.exports = {
   index(req, res, next) {
     wikiQueries.getAllWikis((err, wikis) => {
       if (err) {
+        console.log(err);
         res.redirect(500, "static/index");
       }
       else {
@@ -29,10 +30,12 @@ module.exports = {
     if (authorized) {
       let newWiki = {
         title: req.body.title,
-        body: req.body.body
+        body: req.body.body,
+        userId: req.user.id,
       };
       wikiQueries.addWiki(newWiki, (err, wiki) => {
         if (err) {
+          console.log(err);
           res.redirect(500, "wikis/new");
         } else {
           res.redirect(303, `/wikis/${wiki.id}`);
@@ -47,6 +50,7 @@ module.exports = {
   show(req, res, next) {
     wikiQueries.getWiki(req.params.id, (err, wiki) => {
       if (err || wiki == null) {
+        console.log(err);
         res.redirect(404, "/");
       } else {
         res.render("wikis/show", { wiki });

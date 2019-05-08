@@ -8,6 +8,7 @@ module.exports = {
         callback(null, wikis);
       })
       .catch((err) => {
+        console.log(err);
         callback(err);
       })
   },
@@ -18,6 +19,7 @@ module.exports = {
         callback(null, wiki);
       })
       .catch((err) => {
+        console.log(err);
         callback(err);
       })
   },
@@ -26,6 +28,7 @@ module.exports = {
     return Wiki.create({
       title: newWiki.title,
       body: newWiki.body,
+      userId: newWiki.userId,
       private: false
     })
       .then((wiki) => {

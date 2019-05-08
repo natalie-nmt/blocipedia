@@ -20,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   User.associate = function(models) {
     User.hasMany(models.Wiki, {
-      foreignKey: "id",
+      foreignKey: "userId",
       as: "wikis"
     });
   };
