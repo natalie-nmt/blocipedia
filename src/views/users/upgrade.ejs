@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <% include ../static/partials/head.ejs %>
+  <script src="https://js.stripe.com/v3"></script>
+</head>
+
+<body>
+    <% include ../static/partials/navbar.ejs %>
+    <main class="container">
+    <% include ../static/partials/messages.ejs %>
+  <h2>Upgrade Your Account</h2>
+  <div id="error-message"></div>
+</main>
+  <% include ../static/partials/baseScripts.ejs %>
+  <% include ../static/partials/footer.ejs %>
+</body>
+
+</html>

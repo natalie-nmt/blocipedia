@@ -1,6 +1,7 @@
 const userQueries = require("../db/queries.users.js");
 const passport = require("passport");
 const sgMail = require('@sendgrid/mail');
+const stripe = require("stripe")("sk_test_XzNhcvpmxZrrSy60kDBffmbu00xKGO8oSq");
 
 module.exports = {
   signUp(req, res, next) {
@@ -27,6 +28,7 @@ module.exports = {
         });
       }
     });
+
     sgMail.setApiKey(process.env.SENDGRID_API_KEY);
     const msg = {
       to: "natalie.thomas.nmt@gmail.com",
@@ -35,6 +37,7 @@ module.exports = {
       text: "Thank you for creating an account with us.",
       html: "<strong>Thank you for creating an account with us.</strong> We can't wait to see what you do next.",
     };
+
     sgMail.send(msg);
   },
 
@@ -73,5 +76,25 @@ module.exports = {
       }
     });
   },
+
+  upgrade(req, res, next) {
+    // stripe.charges.retrieve("ch_1EZM6qG0CoJ2yQ6cw6ygnLfl", {
+    //   api_key: "sk_test_XzNhcvpmxZrrSy60kDBffmbu00xKGO8oSq"
+    // });
+    res.render("users/upgrade");
+  },
+
+  purchaseUpgrade(req, res, next) {
+    (async () => {
+      const charge = await stripe.charges.create({
+        amount: 999,
+        currency: 'usd',
+        source: 'tok_visa',
+        receipt_email: 'jenny.rosen@example.com',
+      });
+    })();
+  },
+
+  
 
 };
