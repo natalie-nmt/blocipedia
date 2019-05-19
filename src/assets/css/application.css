@@ -1,7 +1,11 @@
 body {
     padding-top: 0px;
+    background-color: #000000
   }
 
+.container {
+  padding: 50px 10px 10px 10px;
+}
 /* .alert-fixed {
     position:fixed; 
     top: 0px; 
