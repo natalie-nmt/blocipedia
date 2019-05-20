@@ -78,23 +78,32 @@ module.exports = {
   },
 
   upgrade(req, res, next) {
-    // stripe.charges.retrieve("ch_1EZM6qG0CoJ2yQ6cw6ygnLfl", {
-    //   api_key: "sk_test_XzNhcvpmxZrrSy60kDBffmbu00xKGO8oSq"
-    // });
     res.render("users/upgrade");
   },
 
   purchaseUpgrade(req, res, next) {
-    (async () => {
-      const charge = await stripe.charges.create({
-        amount: 999,
-        currency: 'usd',
-        source: 'tok_visa',
-        receipt_email: 'jenny.rosen@example.com',
-      });
-    })();
-  },
+    // const stripe = require("stripe")("sk_test_XzNhcvpmxZrrSy60kDBffmbu00xKGO8oSq");
+    // const token = req.body.stripeToken;
+    // const charge = stripe.charges.create({
+    //   amount: 1500,
+    //   currency: 'usd',
+    //   source: token,
+    //   statement_descriptor: 'Blocipedia Pro Account',
+    //   capture: false,
+    //   receipt_email: 'natalie.thomas.nmt@gmail.com',
+    // })
+    userQueries.upgradeUser(req.params.id, (err, user) => {
+if (err){
+  console.log(err);
+}
+      // if (err && err.type === "StripeCardError") {
+      //   req.flash("notice", "Your payment was unsuccessful");
+      //   res.redirect("/users/upgrade");
+      // } else {
+      //   req.flash("notice", "Your payment was successful. You've been upgraded to a Pro account!");
+      //   res.redirect(`/`);
 
-  
-
+      // }
+    })
+  }
 };

@@ -36,6 +36,10 @@ module.exports = (sequelize, DataTypes) => {
     return this.role === 1;
   };
 
+  User.prototype.isPro = function() {
+    return this.role === 2;
+  };
+
   User.prototype.isMember = function() {
     return this.role === 0;
   };
