@@ -79,6 +79,7 @@ module.exports = {
 
   upgrade(req, res, next) {
     res.render("users/upgrade");
+    // try users/:id/upgrade
   },
 
   purchaseUpgrade(req, res, next) {
@@ -93,6 +94,7 @@ module.exports = {
     //   receipt_email: 'natalie.thomas.nmt@gmail.com',
     // })
     userQueries.upgradeUser(req.params.id, (err, user) => {
+      console.log(user, id);
 if (err){
   console.log(err);
 }
