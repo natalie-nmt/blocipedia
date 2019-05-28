@@ -27,15 +27,15 @@ module.exports = {
         });
       }
     });
-    // sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-    // const msg = {
-    //   to: "natalie.thomas.nmt@gmail.com",
-    //   from: "natalie.thomas.nmt@gmail.com",
-    //   subject: "Welcome to Blocipedia!",
-    //   text: "Thank you for creating an account with us.",
-    //   html: "<strong>Thank you for creating an account with us.</strong> We can't wait to see what you do next.",
-    // };
-    // sgMail.send(msg);
+    sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+    const msg = {
+      to: "natalie.thomas.nmt@gmail.com",
+      from: "natalie.thomas.nmt@gmail.com",
+      subject: "Welcome to Blocipedia!",
+      text: "Thank you for creating an account with us.",
+      html: "<strong>Thank you for creating an account with us.</strong> We can't wait to see what you do next.",
+    };
+    sgMail.send(msg);
   },
 
   signInForm(req, res, next) {
