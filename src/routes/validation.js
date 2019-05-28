@@ -25,7 +25,7 @@ module.exports = {
  
       if (errors) {
         req.flash("error", errors);
-        console.log(errors);
+        console.log("Debugging validation errors: ", errors);
         return res.redirect(req.headers.referer);
       } else {
         return next();
