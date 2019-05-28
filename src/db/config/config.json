@@ -17,12 +17,13 @@
     "logging": false
   },
   "production": {
-    "username": "jrxlvprfnsfyyh",
-    "password": "c71a0a0ceedfb393cdd0b946e2e4efac9721037a9ac040aedcab9a00b43e2dc8",
-    "database": "d97gtmqkfqer3h",
-    "host": "ec2-23-21-106-241.compute-1.amazonaws.com",
+    "username": "root",
+    "password": null,
+    "database": "database_production",
+    "host": "127.0.0.1",
     "dialect": "postgres",
     "logging": false,
-    "operatorsAliases": false
+    "operatorsAliases": false,
+    "use_env_variable": "DATABASE_URL"
   }
 }
