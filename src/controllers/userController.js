@@ -19,6 +19,7 @@ module.exports = {
     userQueries.createUser(newUser, (err, user) => {
       if (err) {
         req.flash("error", err);
+        console.log("Debugging: Create User error: ", err);
         res.redirect("/users/signup");
       } else {
         passport.authenticate("local")(req, res, () => {
