@@ -17,14 +17,13 @@
     "logging": false
   },
   "production": {
-    "username": "postgres",
+    "username": "root",
     "password": null,
     "database": "database_production",
-    "host": "nmt-blocipedia.herokuapp.com",
+    "host": "127.0.0.1",
     "dialect": "postgres",
     "logging": false,
     "operatorsAliases": false,
-    "use_env_variable": "DATABASE_URL",
-    "db": "process.env.DATABASE_URL"
+    "use_env_variable": "DATABASE_URL"
   }
 }
