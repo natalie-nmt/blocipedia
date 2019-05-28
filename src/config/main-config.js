@@ -9,6 +9,7 @@ const flash = require("express-flash");
 const logger = require('morgan');
 
 console.log("Debugging in main-config: ", process.env.DATABASE_URL);
+console.log("Debugging in main-config (part 2): ", process.env.NODE_ENV);
 
 module.exports = {
   init(app, express) {
