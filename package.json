@@ -5,7 +5,8 @@
   "main": "src/server.js",
   "scripts": {
     "test": "export NODE_ENV=test && jasmine",
-    "start": "export NODE_ENV=development && node src/server.js"
+    "dev": "export NODE_ENV=development && node src/server.js",
+    "start": "export NODE_ENV=production && node src/server.js"
   },
   "repository": {
     "type": "git",
